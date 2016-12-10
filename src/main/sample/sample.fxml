@@ -26,39 +26,46 @@
    </columnConstraints>
    <children>
       <Button fx:id="buttonBackspace" mnemonicParsing="false" prefHeight="35.0" prefWidth="50.0" text="←" GridPane.rowIndex="2" />
-      <Button fx:id="buttonCE" mnemonicParsing="false" prefHeight="35.0" prefWidth="50.0" text="CE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <Button fx:id="buttonC" mnemonicParsing="false" prefHeight="35.0" prefWidth="50.0" text="C" GridPane.columnIndex="2" GridPane.rowIndex="2" />
       <Button fx:id="buttonPlusMinus" mnemonicParsing="false" prefHeight="35.0" prefWidth="50.0" text="±" GridPane.columnIndex="3" GridPane.rowIndex="2" />
       <Button fx:id="buttonRadical" mnemonicParsing="false" prefHeight="35.0" prefWidth="50.0" text="√" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-      <Button fx:id="buttonDivision" mnemonicParsing="false" prefHeight="35.0" prefWidth="50.0" text="/" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+      <Button fx:id="buttonPercent" mnemonicParsing="false"  prefHeight="35.0" prefWidth="50.0" text="\%" GridPane.columnIndex="4" GridPane.rowIndex="3" />
       <Button fx:id="buttonDivisionOnOne" mnemonicParsing="false" prefHeight="35.0" prefWidth="50.0" text="1/x" GridPane.columnIndex="4" GridPane.rowIndex="4" />
 
       <!-- операции c двумя операндами-->
-      <Button fx:id="buttonPercent" mnemonicParsing="false" onAction="#doubleOperation" prefHeight="35.0" prefWidth="50.0" text="\%" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-      <Button fx:id="buttonMultiply" mnemonicParsing="false" onAction="#doubleOperation" prefHeight="35.0" prefWidth="50.0" text="*" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-      <Button fx:id="buttonMinus" mnemonicParsing="false" onAction="#doubleOperation" prefHeight="35.0" prefWidth="50.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-      <Button fx:id="buttonPlus" mnemonicParsing="false" onAction="#doubleOperation" prefHeight="35.0" prefWidth="50.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+      <Button fx:id="buttonDivision" mnemonicParsing="false" onAction="#buttonDoubleOperation" prefHeight="35.0" prefWidth="50.0" text="/" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+      <Button fx:id="buttonMultiply" mnemonicParsing="false" onAction="#buttonDoubleOperation" prefHeight="35.0" prefWidth="50.0" text="*" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+      <Button fx:id="buttonMinus" mnemonicParsing="false" onAction="#buttonDoubleOperation" prefHeight="35.0" prefWidth="50.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+      <Button fx:id="buttonPlus" mnemonicParsing="false" onAction="#buttonDoubleOperation" prefHeight="35.0" prefWidth="50.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="6" />
 
       <!-- цифры -->
-      <Button fx:id="buttonNum9" mnemonicParsing="false" onAction="#enterDigital" prefHeight="35.0" prefWidth="50.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-      <Button fx:id="buttonNum8" mnemonicParsing="false" onAction="#enterDigital" prefHeight="35.0" prefWidth="50.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <Button fx:id="buttonNum7" mnemonicParsing="false" onAction="#enterDigital" prefHeight="35.0" prefWidth="50.0" text="7" GridPane.rowIndex="3" />
-      <Button fx:id="buttonNum6" mnemonicParsing="false" onAction="#enterDigital" prefHeight="35.0" prefWidth="50.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-      <Button fx:id="buttonNum5" mnemonicParsing="false" onAction="#enterDigital" prefHeight="35.0" prefWidth="50.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <Button fx:id="buttonNum4" mnemonicParsing="false" onAction="#enterDigital" prefHeight="35.0" prefWidth="50.0" text="4" GridPane.rowIndex="4" />
-      <Button fx:id="buttonNum3" mnemonicParsing="false" onAction="#enterDigital" prefHeight="35.0" prefWidth="50.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-      <Button fx:id="buttonNum2" mnemonicParsing="false" onAction="#enterDigital" prefHeight="35.0" prefWidth="50.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-      <Button fx:id="buttonNum1" mnemonicParsing="false" onAction="#enterDigital" prefHeight="35.0" prefWidth="50.0" text="1" GridPane.rowIndex="5" />
-      <Button fx:id="buttonNum0" mnemonicParsing="false" onAction="#enterDigital" prefHeight="35.0" prefWidth="105.0" text="0" GridPane.columnSpan="2" GridPane.rowIndex="6" />
-      <Button fx:id="buttonDot" mnemonicParsing="false" onAction="#enterDigital" prefHeight="35.0" prefWidth="50.0" text="," GridPane.columnIndex="2" GridPane.rowIndex="6" />
+      <Button fx:id="buttonNum9" mnemonicParsing="false" onAction="#buttonEnterDigital" prefHeight="35.0" prefWidth="50.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <Button fx:id="buttonNum8" mnemonicParsing="false" onAction="#buttonEnterDigital" prefHeight="35.0" prefWidth="50.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Button fx:id="buttonNum7" mnemonicParsing="false" onAction="#buttonEnterDigital" prefHeight="35.0" prefWidth="50.0" text="7" GridPane.rowIndex="3" />
+      <Button fx:id="buttonNum6" mnemonicParsing="false" onAction="#buttonEnterDigital" prefHeight="35.0" prefWidth="50.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+      <Button fx:id="buttonNum5" mnemonicParsing="false" onAction="#buttonEnterDigital" prefHeight="35.0" prefWidth="50.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <Button fx:id="buttonNum4" mnemonicParsing="false" onAction="#buttonEnterDigital" prefHeight="35.0" prefWidth="50.0" text="4" GridPane.rowIndex="4" />
+      <Button fx:id="buttonNum3" mnemonicParsing="false" onAction="#buttonEnterDigital" prefHeight="35.0" prefWidth="50.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+      <Button fx:id="buttonNum2" mnemonicParsing="false" onAction="#buttonEnterDigital" prefHeight="35.0" prefWidth="50.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <Button fx:id="buttonNum1" mnemonicParsing="false" onAction="#buttonEnterDigital" prefHeight="35.0" prefWidth="50.0" text="1" GridPane.rowIndex="5" />
+      <Button fx:id="buttonNum0" mnemonicParsing="false" onAction="#buttonEnterDigital" prefHeight="35.0" prefWidth="105.0" text="0" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+      <Button fx:id="buttonDot" mnemonicParsing="false" onAction="#buttonEnterDigital" prefHeight="35.0" prefWidth="50.0" text="." GridPane.columnIndex="2" GridPane.rowIndex="6" />
 
-      <!-- результат -->
-      <Button fx:id="buttonEqually" mnemonicParsing="false" prefHeight="75.0" prefWidth="50.0" text="=" GridPane.columnIndex="4" GridPane.rowIndex="5" GridPane.rowSpan="2" />
+      <!-- очистка -->
+      <Button fx:id="buttonCE" mnemonicParsing="false" onAction="#buttonCEClick" prefHeight="35.0" prefWidth="50.0" text="CE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Button fx:id="buttonC" mnemonicParsing="false" prefHeight="35.0" prefWidth="50.0" text="C" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+
+       <!-- результат -->
+      <Button fx:id="buttonResult" mnemonicParsing="false" onAction="#buttonResultClick" prefHeight="75.0" prefWidth="50.0" text="=" GridPane.columnIndex="4" GridPane.rowIndex="5" GridPane.rowSpan="2" />
+
+       <!-- Дисплей -->
       <TextField fx:id="display" alignment="CENTER_RIGHT" editable="false" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" GridPane.columnSpan="5" GridPane.rowIndex="1" />
+
+       <!-- Информационный дисплей-->
       <TextField fx:id="displayTop" alignment="CENTER_RIGHT" editable="false" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" GridPane.columnSpan="5">
          <font>
             <Font name="System Italic" size="10.0" />
          </font>
       </TextField>
+
    </children>
 </GridPane>

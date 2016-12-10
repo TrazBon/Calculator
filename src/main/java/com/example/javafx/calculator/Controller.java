@@ -6,104 +6,62 @@ import javafx.scene.control.Button;
 
 import java.util.*;
 
-
 public class Controller {
     @FXML
     javafx.scene.control.TextField display;
     @FXML
     javafx.scene.control.TextField displayTop;
 
-    //Результат вычислений
-    long activeResult;
-    //Активная строка, хранит текущее значение вводимое юзером
-    String fieldActive = new String();
-    long longActive;
-    //Последняя нажатая кнопка цифровая
-    boolean isLastButtonIsNumber = false;
-    //Массив с операндами и операциями
-    public LinkedList<Operand> mapOperations = new LinkedList<>();
+    boolean isLastButtonIsNumber = false; //Последняя нажатая кнопка цифровая
+    public LinkedList<Operand> listOfOperands = new LinkedList<>(); //Массив с операндами
+    char lastOperation = ' '; //переменная для хранения последней введенной операции
 
     //Действие цифровых клавиш
-    public void enterDigital(ActionEvent actionEvent) {
-        //Если последняя кнопка не номер то чистим дисплей
-        if (isLastButtonIsNumber){
-            display.setText("я");
-        }
-        //Тащим кнопку из экшена
-        Button button = (Button) actionEvent.getSource();
-        //Дописываем в активную строку значение кликнутой кнопки
-        fieldActive += button.getText();
-        //Выводим значение активной строки на дисплей
-        System.out.println(fieldActive);
-        setDisplayText(fieldActive);
-        //Меняем флаг последней нажатой кнопки
-        isLastButtonIsNumber = true;
+    public void buttonEnterDigital(ActionEvent actionEvent) {
+        if (!isLastButtonIsNumber) //Если последняя кнопка не номер то чистим дисплей
+            display.setText("");
+        Button button = (Button) actionEvent.getSource(); //Тащим кнопку из экшена
+        display.setText(display.getText()+button.getText()); //Дописываем в дисплей значение кликнутой кнопки
+        isLastButtonIsNumber = true; //Меняем флаг последней нажатой кнопки
     }
 
     //Действие операционных клавиш
-    public void doubleOperation(ActionEvent actionEvent) {
-        
-        //Выводим на дисплей результат(Расчитываем текущий результат)
-        setDisplayText(String.valueOf(calculateResult()));
+    public void buttonDoubleOperation(ActionEvent actionEvent) {
+        float digital = Float.valueOf(display.getText()); //Переменная для числового выражения в дисплее
+        Button button = (Button) actionEvent.getSource(); //Тащим кнопку
+        char operation = button.getText().charAt(0); //Вытаскиваем из кнопки символ операции
+        float result; //Переменная с результатом
 
-        //Записываем в массив операнд и операцию
-        writeToMapOfOperations();
+        Operand operand = new Operand(digital, lastOperation);//Создаем Операнд с последней операцией
+        listOfOperands.add(operand); //Добавляем операнд в лист
+        result = Lib.calculateResultOfOperandsList(listOfOperands);//Расчитываем результат и печатаем операнды в верхнем дисплее
+        displayTop.setText(Lib.printOperandsList(listOfOperands));//Выводим на верхний дисплей весь лист
+        display.setText(String.valueOf(result)); //Выводим на дисплей результат(Расчитываем текущий результат)
 
-        //Меняем флаг последней нажатой кнопки
-        isLastButtonIsNumber = false;
-
-//        //Чистим дисплей
-//        setDisplayText("");
-//
-//        //Преобразуем активную строку в лонг
-//        try {
-//                longActive = Long.valueOf(fieldActive);
-//        }catch (NumberFormatException e){
-//            System.err.println("Неверный формат строки");
-//        }
-//
-//        //Тащим кнопку из экшена
-//        Button button = (Button) actionEvent.getSource();
-//
-//
-//        //Результат переносим в активную строку
-//        fieldActive = String.valueOf(calculationResult);
-//
-//        //Выводим на дисплей
-//        setDisplayText(fieldActive);
-//
-
+        lastOperation = operation;//Сохраняем текущую операцию
+        isLastButtonIsNumber = false;//Меняем флаг последней нажатой кнопки на не цифру
     }
-    private void writeToMapOfOperations() {
+    //Дейстмие кнопки СЕ
+    public void buttonCEClick(ActionEvent actionEvent){
+        listOfOperands.clear();//чистим лист с операндами
+        displayTop.clear();//Чистим дисплеи
+        display.clear();
+
+        lastOperation = ' ';
+        isLastButtonIsNumber = false;//Меняем флаг последней нажатой кнопки на не цифру
     }
 
-    private long calculateResult() {
-        //Тут храним результат
-        long result = 0;
-        //Проходим массив и последовательно выполняем операции
-        for (Operand operand : mapOperations) {
-            switch (operand.getOperation()){
-                case '+':
-                    result += operand.getOperand();
-                    break;
-                case '-':
-                    result -= operand.getOperand();
-                    break;
-                case '*':
-                    result = result * operand.getOperand();
-                    break;
-                case '/':
-                    result = result / operand.getOperand();
-                    break;
-                default:
-                    System.out.println("действие не распознано");
-            }
-        }
-        return result;
-    }
+    //Действие кнопки равно
+    public void buttonResultClick(ActionEvent actionEvent){
+        float result; //Переменная с результатом
+        float digital = Float.valueOf(display.getText());
+        result = Lib.calculateResultOfOperandsList(listOfOperands);//Расчитываем результат и печатаем операнды в верхнем дисплее
+        Operand operand = new Operand(digital, lastOperation);//Создаем Операнд с последней операцией
+        listOfOperands.add(operand); //Добавляем операнд в лист
+        displayTop.setText(Lib.printOperandsList(listOfOperands));//Выводим на верхний дисплей весь лист
+        display.setText(String.valueOf(result)); //Выводим на дисплей результат(Расчитываем текущий результат)
 
-    //Сеттер текста для дисплея
-    public void setDisplayText(String s){
-        display.setText(s);
+        lastOperation = ' ';
+        isLastButtonIsNumber = false;//Меняем флаг последней нажатой кнопки на не цифру
     }
 }
