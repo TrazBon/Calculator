@@ -32,10 +32,10 @@
       <Button fx:id="buttonDivisionOnOne" mnemonicParsing="false" prefHeight="35.0" prefWidth="50.0" text="1/x" GridPane.columnIndex="4" GridPane.rowIndex="4" />
 
       <!-- операции c двумя операндами-->
-      <Button fx:id="buttonDivision" mnemonicParsing="false" onAction="#buttonDoubleOperation" prefHeight="35.0" prefWidth="50.0" text="/" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-      <Button fx:id="buttonMultiply" mnemonicParsing="false" onAction="#buttonDoubleOperation" prefHeight="35.0" prefWidth="50.0" text="*" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-      <Button fx:id="buttonMinus" mnemonicParsing="false" onAction="#buttonDoubleOperation" prefHeight="35.0" prefWidth="50.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-      <Button fx:id="buttonPlus" mnemonicParsing="false" onAction="#buttonDoubleOperation" prefHeight="35.0" prefWidth="50.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+      <Button fx:id="buttonDivision" mnemonicParsing="false" onAction="#buttonDualOperation" prefHeight="35.0" prefWidth="50.0" text="/" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+      <Button fx:id="buttonMultiply" mnemonicParsing="false" onAction="#buttonDualOperation" prefHeight="35.0" prefWidth="50.0" text="*" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+      <Button fx:id="buttonMinus" mnemonicParsing="false" onAction="#buttonDualOperation" prefHeight="35.0" prefWidth="50.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+      <Button fx:id="buttonPlus" mnemonicParsing="false" onAction="#buttonDualOperation" prefHeight="35.0" prefWidth="50.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="6" />
 
       <!-- цифры -->
       <Button fx:id="buttonNum9" mnemonicParsing="false" onAction="#buttonEnterDigital" prefHeight="35.0" prefWidth="50.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="3" />
