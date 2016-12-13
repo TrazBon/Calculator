@@ -1,9 +1,6 @@
 package com.example.javafx.calculator;
 
-import javafx.fxml.FXML;
-
 import java.util.List;
-import java.util.StringJoiner;
 
 /**
  * Created by sdv on 11.12.2016.
